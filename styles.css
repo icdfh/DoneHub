@@ -1,0 +1,479 @@
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgb(180, 0, 180);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode {
+    background: #181818;
+    color: #fff;
+}
+.fas fa-plus{
+    color:  rgb(156, 0, 156);
+}
+.fas fa-plus:hover{
+    color: white;
+}
+
+/* Контейнер To-Do List */
+#todo-app {
+    width: 90%;
+    max-width: 600px;
+    background: rgb(156, 0, 156);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode #todo-app {
+    background: #242424;
+    color: #ffffff;
+}
+
+/* Заголовок */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.8em;
+    margin: 0;
+    text-align: center;
+}
+
+#toggle-theme {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#toggle-theme:hover {
+    transform: scale(1.2);
+}
+
+/* Контролы */
+#controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+#date-picker,
+#time-picker,
+#task-input {
+    appearance: none; /* Убираем стандартное оформление браузера */
+    padding: 9px 15px; /* Просторные отступы */
+    margin-bottom: 10px; /* Отступы между полями */
+    font-size: 14px; /* Увеличиваем размер текста */
+    color: #333; /* Цвет текста */
+    border: 2px solid #ddd; /* Тонкая рамка */
+    border-radius: 15px; /* Закруглённые углы */
+    background: #f9f9f9; /* Светлый фон */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    transition: all 0.3s ease; /* Плавный переход при наведении */
+}
+#task-input {
+    font-weight: bolder;
+    font-size: 15px;
+    color: rgb(156, 0, 156); ;
+}
+#date-picker:focus,
+#time-picker:focus,
+#task-input:focus {
+    outline: none; /* Убираем стандартный фокус */
+    border-color: rgb(156, 0, 156); /* Акцентная рамка при фокусе */
+    background: #fff; /* Белый фон при фокусе */
+    box-shadow: 0 5px 15px rgba(156, 0, 156, 0.3); /* Более яркая тень */
+}
+
+#task-input::placeholder {
+    color: #aaa; /* Цвет для текста-заполнителя */
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Кастомизация иконок для календаря и времени */
+#date-picker::-webkit-calendar-picker-indicator,
+#time-picker::-webkit-calendar-picker-indicator {
+    background-size: 20px 20px; /* Размер иконки */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px; /* Размер зоны клика */
+    height: 30px;
+    cursor: pointer; /* Курсор указывает на интерактивность */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    
+}
+
+#date-picker:hover::-webkit-calendar-picker-indicator,
+#time-picker:hover::-webkit-calendar-picker-indicator {
+    opacity: 1; /* Увеличение видимости при наведении */
+}
+
+#add-task {
+    background:  white;
+    color: rgb(156, 0, 156);;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    height: 56px;
+    width: 50px;
+   
+}
+
+#add-task:hover {
+   
+    background: rgb(207, 0, 207);
+    color: white;
+    
+}
+
+.dark-mode #add-task {
+    background: #28a745;
+}
+
+.dark-mode #add-task:hover {
+    background: #1e7e34;
+}
+
+/* Список задач */
+#task-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: grab;
+}
+
+.task:active {
+    transform: scale(1.02);
+    cursor: grabbing;
+}
+
+.dark-mode .task {
+    background: #333333;
+    border-color: #444444;
+}
+
+/* Детали задачи */
+.task-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.task-details span {
+    font-size: 1em;
+    word-break: break-word;
+}
+
+/* Действия задачи */
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    color:rgb(156, 0, 156);
+}
+
+.edit-btn:hover {
+    color: #007bff;
+    transform: scale(1.2);
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+    transform: scale(1.2);
+}
+
+/* Кнопки */
+button {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#view-stats,
+#calendar-view {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background: white;
+    color: rgb(156, 0, 156);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#view-stats:hover,
+#calendar-view:hover {
+    background: rgb(207, 0, 207);
+    color: white;
+}
+
+.dark-mode #view-stats,
+.dark-mode #calendar-view {
+    background: #17a2b8;
+}
+
+.dark-mode #view-stats:hover,
+.dark-mode #calendar-view:hover {
+    background: #138496;
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.dark-mode .modal {
+    background: #333333;
+    color: #ffffff;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Календарь */
+#calendar-modal{
+    background: rgb(156, 0, 156);
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+#calendar div {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(156, 0, 156);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#calendar div.completed {
+    background: white;
+    color: rgb(156, 0, 156);
+}
+
+#calendar div.incomplete {
+    background: rgb(156, 0, 156);;
+    color: white;
+}
+#close-calendar{
+    color: rgb(156, 0, 156);
+    background: white;
+    border: none;
+    margin-top: 20px;
+    width: 90px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+#close-calendar:hover{
+    background: rgb(207, 0, 207);
+    color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 390px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #controls {
+        flex-direction: column;
+    }
+
+    #add-task {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .task {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .task-actions {
+        justify-content: flex-end;
+        flex: 1;
+    }
+}
+#stats-app {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#stats-app h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+#history-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#history-list .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#history-list .task span {
+    font-size: 1em;
+    word-break: break-word;
+}
+
+#history-list .restore-btn {
+    padding: 5px 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#history-list .restore-btn:hover {
+    background: #1e7e34;
+}
+
+#back-to-todo {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#back-to-todo:hover {
+    background: #0056b3;
+}
+
+.custom-checkbox {
+    position: relative;
+    width: 25px; /* Ширина чекбокса */
+    height: 25px; /* Высота чекбокса */
+    margin-bottom: 7px;
+    margin-right: 5px;
+}
+
+.custom-checkbox input {
+    opacity: 0; /* Скрываем стандартный чекбокс */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.custom-checkbox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(156, 0, 156); /* Цвет рамки */
+    border-radius: 10px; /* Делаем круглый чекбокс */
+    background-color: #fff; /* Фон чекбокса */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-checkbox input:checked + label {
+    background-color: white; /* Цвет заливки при выборе */
+  
+}
+
+.custom-checkbox input:checked + label::before {
+    content: '';
+    width: 20px; /* Диаметр точки */
+    height: 20px; /* Диаметр точки */
+    background-color: rgb(156, 0, 156);
+    border-radius: 25px;
+}
