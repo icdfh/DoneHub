@@ -2,6 +2,8 @@
 
 Он написан на чистом JS с использованием css/html
 
+https://done-hub-planner.vercel.app/ ХОСТИНГ НА VERCEL
+
 ![image](https://github.com/user-attachments/assets/2767e7e6-f7a0-4035-9be0-6f28e400fb57)
 
 ![image](https://github.com/user-attachments/assets/69ecd9e1-2a25-498b-aef5-7506b9992eba)
